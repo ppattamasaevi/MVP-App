@@ -7,6 +7,7 @@ const DateTime = () => {
 
   useEffect(() => {
    var timerID = setInterval( () => tick(), 1000 );
+
   });
 
   const tick = () => {

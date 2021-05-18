@@ -1,6 +1,7 @@
 import React from "react";
 
 import DateTime from './DateTime';
+import SuggestiveTodosList from './SuggestiveTodo';
 
 const App = () => {
   return (
@@ -9,6 +10,7 @@ const App = () => {
         Hello MVP
       </h1>
       <DateTime/>
+      <SuggestiveTodosList/>
     </>
   );
 }
