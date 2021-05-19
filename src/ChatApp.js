@@ -32,6 +32,13 @@ const SignIn = () => {
 
 }
 
+const SignOut = () => {
+
+  return (
+    <button onClick={() => firebase.auth().signOut()}>Sign Out</button>
+  );
+}
+
 const ChatRoom = () => {
 
   const collection = firestore.collection('messages');
@@ -93,8 +100,10 @@ const ChatApp = () => {
     <div className="chatapp">
       <h3>Chat App</h3>
       <div>
+        {/* if there exists a logged in user, then show ChatRoom, otherwise, show SignIn */}
         {user ? <ChatRoom/> : <SignIn/>}
       </div>
+      <SignOut/>
     </div>
   );
 
