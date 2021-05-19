@@ -3,11 +3,11 @@ import moment from 'moment';
 
 const DateTime = () => {
 
-  const [time, setTime] = useState(moment().format('h:mm:ss a'));
+  const timeNow = moment().format('h:mm:ss a');
+  const [time, setTime] = useState(timeNow);
 
   useEffect(() => {
-   var timerID = setInterval( () => tick(), 1000 );
-
+    var timerID = setInterval( () => tick(), 1000 );
   });
 
   const tick = () => {
@@ -20,7 +20,8 @@ const DateTime = () => {
     <>
       <div>{moment().format('MMMM Do YYYY')}</div>
       <div>{time}</div>
-      <div>Free to head outside {timeEnd.fromNow()}</div>
+      <div>{time.toString().indexOf('pm') === -1 ? "Good Morning, Pep" : "Good Afternoon, Pep" }</div>
+      <div>Safe to head out {timeEnd.fromNow()}</div>
     </>
    );
 

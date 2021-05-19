@@ -1,5 +1,8 @@
 const webpack = require('webpack');
 const path = require('path');
+const { InjectManifest } = require('workbox-webpack-plugin');
+
+const path = require('path');
 
 const config = {
   entry: './src/index.js',
