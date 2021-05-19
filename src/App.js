@@ -2,6 +2,7 @@ import React from "react";
 
 import DateTime from './DateTime';
 import SuggestiveTodosList from './SuggestiveTodo';
+import RecipesList from './RecipesList';
 
 const App = () => {
   return (
@@ -11,6 +12,7 @@ const App = () => {
       </h1>
       <DateTime/>
       <SuggestiveTodosList/>
+      <RecipesList/>
     </>
   );
 }

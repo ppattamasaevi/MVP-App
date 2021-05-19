@@ -18,6 +18,19 @@ app.get('/todo', (req, res) => {
     })
 });
 
+app.get('/recipes', (req, res) => {
+  const {ingredients} = req.query;
+  const endpoint = `http://www.recipepuppy.com/api/?i=${ingredients}&p=1`;
+
+  axios.get(endpoint)
+    .then((results) => {
+      res.send(results.data);
+    })
+    .catch((err) => {
+      console.log(err.message);
+    })
+})
+
 app.listen(PORT, () => {
   console.log(`Server listening on PORT ${PORT}`);
 });

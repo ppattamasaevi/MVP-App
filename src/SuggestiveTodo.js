@@ -25,11 +25,13 @@ const SuggestiveTodo = () => {
 
   return (
     <>
-      <p>Here's an idea!</p>
+      <h3>An idea for today!</h3>
+
       {todo.link ?
-      <a href={todo.link} target="_blank">{activity}</a> : <p>{activity}</p>}
+      <div><a href={todo.link} target="_blank">{activity}</a></div> :
+      <p>{activity}</p>}
 
-
+      <button onClick={() => {fetchTodo()}}>Next..</button>
     </>
   );
 }
