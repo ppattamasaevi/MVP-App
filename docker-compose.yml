@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+  mvp:
+    container_name: quaranteam
+    restart: always
+    build: .
+    ports:
+      - '3000:8000'
