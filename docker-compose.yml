@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  mvp:
+    container_name: quaranteam
+    restart: always
+    build: .
+    ports:
+      - '80:8000'
+    links:
+      - db
