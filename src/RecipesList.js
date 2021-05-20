@@ -3,7 +3,7 @@ import axios from 'axios';
 import Recipe from './Recipe';
 import { Paper } from '@material-ui/core';
 import { Button } from '@material-ui/core';
-
+import { Typography } from '@material-ui/core';
 
 
 const RecipesList = () => {
@@ -27,7 +27,7 @@ const RecipesList = () => {
 
   return (
     <Paper className="paper">
-      <h3>Find Food Recipes</h3>
+      <Typography gutterBottom variant="h6">Find Food Recipes</Typography>
 
       <label htmlFor="ingredients"></label>
       <input id="ingreInput" name="ingredients" type="text" placeholder="Ingredients" onChange={(event) => {

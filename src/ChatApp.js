@@ -2,15 +2,18 @@ import React, { useEffect, useRef, useState } from 'react';
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 import 'firebase/auth';
+import API_KEY from '../config/config.js';
 
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
 
 import { Paper } from '@material-ui/core';
+import { Button } from '@material-ui/core';
+import { Typography } from '@material-ui/core';
 
 
 var firebaseConfig = {
-  apiKey: "AIzaSyAD5n-tI8uph2BYX9KkHL-qs8-xUb-JEcw",
+  apiKey: API_KEY,
   authDomain: "chatapp-143c7.firebaseapp.com",
   projectId: "chatapp-143c7",
   storageBucket: "chatapp-143c7.appspot.com",

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Paper } from '@material-ui/core';
 import { Button } from '@material-ui/core';
-
+import { Typography } from '@material-ui/core';
 
 
 const SuggestiveTodo = () => {
@@ -29,12 +29,12 @@ const SuggestiveTodo = () => {
   return (
     <Paper className="paper">
       <div>
-        <h3>Here's an idea</h3>
+        <Typography gutterBottom variant="h6">It's a brand new day</Typography>
 
         {todo.link ?
-        <div><a href={todo.link} target="_blank">{activity}</a></div> :
-        <p>{activity}</p>}
-
+        <div><Typography><a href={todo.link} target="_blank">{activity}</a></Typography></div> :
+        <Typography>{activity}</Typography>}
+        <br></br>
         <Button variant="contained" color="primary" size="small" onClick={() => {fetchTodo()}}>Next..</Button>
       </div>
     </Paper>

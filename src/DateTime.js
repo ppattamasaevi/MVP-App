@@ -23,8 +23,8 @@ const DateTime = () => {
 
   return (
     <div className="date-component">
-      <Typography variant="h4">{moment().format('MMMM Do YYYY')}</Typography>
-      <Typography variant="h4">{time}</Typography>
+      <Typography color="primary" variant="h4">{moment().format('MMMM Do YYYY')}</Typography>
+      <Typography color="primary" variant="h4">{time}</Typography>
       <Typography>{time.toString().indexOf('pm') === -1 ? "Good Morning, Pep" : "Good Afternoon, Pep" }</Typography>
       <Typography>{`- Only ${timeRemaining} to go -`}</Typography>
     </div>

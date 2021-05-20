@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { Typography } from '@material-ui/core';
+
 
 const Recipe = ({ recipe }) => {
 
@@ -6,8 +8,9 @@ const Recipe = ({ recipe }) => {
 
   return (
     <div>
-      <a target="_blank" href={href}>{title}</a>
-
+      <Typography>
+        <a target="_blank" href={href}>{title}</a>
+      </Typography>
     </div>
   );
 

@@ -14,7 +14,7 @@ const App = () => {
   return (
     <>
 
-      <Grid container spacing={3}>
+      <Grid container spacing={2}>
         <Grid item xs={12}>
           <Typography className="app-title" variant="h5">
             QuaranTEAM
