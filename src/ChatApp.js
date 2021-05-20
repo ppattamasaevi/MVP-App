@@ -6,6 +6,9 @@ import 'firebase/auth';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
 
+import { Paper } from '@material-ui/core';
+
+
 var firebaseConfig = {
   apiKey: "AIzaSyAD5n-tI8uph2BYX9KkHL-qs8-xUb-JEcw",
   authDomain: "chatapp-143c7.firebaseapp.com",
@@ -42,48 +45,56 @@ const SignOut = () => {
 const ChatRoom = () => {
 
   const collection = firestore.collection('messages');
-  const query = collection.orderBy('createdAt').limitToLast(5);
+  const query = collection.orderBy('createdAt').limitToLast(10);
   const [messages] = useCollectionData(query, { idField:'id' });
 
   const [text, setText] = useState('');
 
   const saveMessage = (e) => {
     e.preventDefault();
-    const {uid} = firebase.auth().currentUser;
+    const {uid, photoURL} = firebase.auth().currentUser;
 
     collection.add({
       text,
       uid,
-      createdAt: firebase.firestore.FieldValue.serverTimestamp()
+      createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+      photoURL
     })
       .then(() => setText(''))
       .catch((err) => console.log(err.message));
   }
 
+  const dummy = useRef();
+  useEffect(() => {
+    dummy.current.scrollIntoView({ behavior: 'smooth' });
+  }, [messages])
+
   return (
-    <>
-      <div>
+    <div>
+      <div className="chatroom">
         {messages && messages.map((message) => {
           return <ChatMessage key={message.id} message={message}/>
         })}
+        <span ref={dummy}></span>
       </div>
       <form onSubmit={saveMessage}>
         <input value={text} onChange={(e) => {setText(e.target.value)}} placeholder="write a message"></input>
-        <button type="submit">Send</button>
+        {/* <button type="submit">Send</button> */}
       </form>
-    </>
+    </div>
   );
 
 }
 
 const ChatMessage = ({ message }) => {
 
-  const { text, uid } = message;
+  const { text, uid, photoURL } = message;
   const messageClass = uid === firebase.auth().currentUser.uid ? 'sent' : 'received'
 
   return (
     <>
       <div className={`message ${messageClass}`}>
+        <img className="profile-pic" src={photoURL}/>
         <p>{text}</p>
       </div>
     </>
@@ -97,14 +108,14 @@ const ChatApp = () => {
   const [user] = useAuthState(firebase.auth());
 
   return (
-    <div className="chatapp">
+    <Paper elevation={5} className="chatapp paper">
       <h3>Chat App</h3>
       <div>
         {/* if there exists a logged in user, then show ChatRoom, otherwise, show SignIn */}
         {user ? <ChatRoom/> : <SignIn/>}
       </div>
       <SignOut/>
-    </div>
+    </Paper>
   );
 
 }

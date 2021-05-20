@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Paper } from '@material-ui/core';
+import { Button } from '@material-ui/core';
+
 
 
 const SuggestiveTodo = () => {
@@ -24,15 +27,17 @@ const SuggestiveTodo = () => {
   const activity = todo.activity;
 
   return (
-    <>
-      <h3>An idea for today!</h3>
+    <Paper className="paper">
+      <div>
+        <h3>Here's an idea</h3>
 
-      {todo.link ?
-      <div><a href={todo.link} target="_blank">{activity}</a></div> :
-      <p>{activity}</p>}
+        {todo.link ?
+        <div><a href={todo.link} target="_blank">{activity}</a></div> :
+        <p>{activity}</p>}
 
-      <button onClick={() => {fetchTodo()}}>Next..</button>
-    </>
+        <Button variant="contained" color="primary" size="small" onClick={() => {fetchTodo()}}>Next..</Button>
+      </div>
+    </Paper>
   );
 }
 

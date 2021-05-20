@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import moment from 'moment';
+import { Typography } from '@material-ui/core';
+import { Paper } from '@material-ui/core';
+
+
 
 const DateTime = () => {
 
@@ -14,15 +18,16 @@ const DateTime = () => {
     setTime(moment().format('h:mm:ss a'));
   }
 
-  const timeEnd = moment([2021, 5]);
+  const timeEnd = moment([2021, 4, 25]);
+  const timeRemaining = timeEnd.fromNow().toString().substring(3);
 
   return (
-    <>
-      <div>{moment().format('MMMM Do YYYY')}</div>
-      <div>{time}</div>
-      <div>{time.toString().indexOf('pm') === -1 ? "Good Morning, Pep" : "Good Afternoon, Pep" }</div>
-      <div>Safe to head out {timeEnd.fromNow()}</div>
-    </>
+    <div className="date-component">
+      <Typography variant="h4">{moment().format('MMMM Do YYYY')}</Typography>
+      <Typography variant="h4">{time}</Typography>
+      <Typography>{time.toString().indexOf('pm') === -1 ? "Good Morning, Pep" : "Good Afternoon, Pep" }</Typography>
+      <Typography>{`- Only ${timeRemaining} to go -`}</Typography>
+    </div>
    );
 
 }

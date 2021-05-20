@@ -1,4 +1,41 @@
-h1 {
-  color: white;
-  background-color: black;
+.app-title {
+  text-align: center;
+}
+
+.date-component {
+  text-align: center;
+}
+
+.paper {
+  padding: 15px;
+}
+
+button {
+  display: block;
+}
+
+.profile-pic {
+  width: 25px;
+  padding-right: 5px;
+}
+
+.sent {
+  text-align: left;
+}
+
+.received {
+  text-align: right;
+}
+
+p {
+  margin: 5px;
+}
+
+.chatapp {
+  height: 310px;
+}
+
+.chatroom {
+  height: 210px;
+  overflow: scroll;
 }

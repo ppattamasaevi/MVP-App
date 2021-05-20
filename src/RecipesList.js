@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Recipe from './Recipe';
+import { Paper } from '@material-ui/core';
+import { Button } from '@material-ui/core';
+
+
 
 const RecipesList = () => {
 
@@ -22,22 +26,24 @@ const RecipesList = () => {
   }
 
   return (
-    <>
-      <h3>Don't know what to cook?</h3>
+    <Paper className="paper">
+      <h3>Find Food Recipes</h3>
 
       <label htmlFor="ingredients"></label>
       <input id="ingreInput" name="ingredients" type="text" placeholder="Ingredients" onChange={(event) => {
         setIngres(event.target.value);
       }}></input>
-      <button onClick={(event) => {
+      <br></br>
+      <br></br>
+      <Button variant="contained" color="primary" size="small" onClick={(event) => {
         fetchRecipes();
         document.getElementById('ingreInput').value = '';
-      }}>Find Recipes!</button>
+      }}>Find Recipes!</Button>
 
       {recipes.map((recipe) =>
         <Recipe recipe={recipe} key={recipe.title}/>
       )}
-    </>
+    </Paper>
   );
 
 }
