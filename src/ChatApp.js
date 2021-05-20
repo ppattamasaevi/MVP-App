@@ -41,7 +41,7 @@ const SignIn = () => {
 const SignOut = () => {
 
   return (
-    <button onClick={() => firebase.auth().signOut()}>Sign Out</button>
+    <Button variant="outlined" color="primary" size="small" onClick={() => firebase.auth().signOut()}>Sign Out</Button>
   );
 }
 
@@ -98,7 +98,7 @@ const ChatMessage = ({ message }) => {
     <>
       <div className={`message ${messageClass}`}>
         <img className="profile-pic" src={photoURL}/>
-        <p>{text}</p>
+        <Typography variant="body2">{text}</Typography>
       </div>
     </>
   );
@@ -112,7 +112,7 @@ const ChatApp = () => {
 
   return (
     <Paper elevation={5} className="chatapp paper">
-      <h3>Chat App</h3>
+      <Typography gutterBottom variant="h6">Reach Out</Typography>
       <div>
         {/* if there exists a logged in user, then show ChatRoom, otherwise, show SignIn */}
         {user ? <ChatRoom/> : <SignIn/>}

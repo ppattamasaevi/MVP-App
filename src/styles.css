@@ -32,10 +32,14 @@ p {
 }
 
 .chatapp {
-  height: 310px;
+  height: 350px;
 }
 
 .chatroom {
-  height: 210px;
+  height: 230px;
   overflow: scroll;
+}
+
+html {
+  background: linear-gradient(to bottom, #ece9e6, #ffffff);
 }
